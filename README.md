@@ -1,4 +1,4 @@
-# CISC480-Day-In-the-Life
+# CISC480-Day-in-the-Life
 ## Team Members: Amber Kraft, Elijah Parkos, Kitty Marsh, Branden Shaffa
 Day in the Life is a “choose-your-path” sustainability game for the University of St. Thomas, built as a CISC 480 capstone project in partnership with the UST Office of Sustainability. Players move through a typical day as a Tommie, making everyday choices (how to get to class, what to eat, what to buy) and seeing how those choices impact the outward environment. This project builds on the existing Day in the Life game with the goal of making the learning content more specific, relatable, and better explained, so students leave with concrete reasons and habits they can actually apply.
 ### Problems to solve:
