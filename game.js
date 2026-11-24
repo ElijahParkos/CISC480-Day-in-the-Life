@@ -15,7 +15,7 @@ close_popup_btn.addEventListener('click', closeConsequence);
 let scenarios = {};   // loaded from scenarios.json
 let current = null;   // id of the scenario on screen
 
-const background = {
+const backgrounds = {
     'Move-In': 'images/moveIn.jpg',
     'Move-Out': 'images/moveOut.jpg',
     'Sunday-Reset': 'images/sundayReset.jpg',
