@@ -27,6 +27,7 @@ function showEndingSummary(rankText) {
     document.querySelector('.text-container').style.display = 'none';
     document.querySelector('.choice-container').style.display = 'none';
 
+    // set up ending visuals
     document.body.classList.add('ending');
 
     // make matching
@@ -62,9 +63,11 @@ function showEndingSummary(rankText) {
     content.appendChild(list_header);
 
 
+    // add accordion section
     const accordion = document.createElement('div');
     accordion.className = 'accordion';
 
+    // toggle open/close to show or hide accordion description
     function setOpen(item, open) {
         item.classList.toggle('is-open', open);
         item.querySelector('.accordion-content-description').hidden = !open;
@@ -76,6 +79,7 @@ function showEndingSummary(rankText) {
         }
     }
 
+    // implement accordion-style format for each scenario
     choiceHistory.forEach(function (entry, index) {
         const item = document.createElement('div');
         item.className = 'accordion-content';
