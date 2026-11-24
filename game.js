@@ -18,8 +18,8 @@ let current = null;   // id of the scenario on screen
 const backgrounds = {
     'Move-In': 'images/moveIn.jpg',
     'Move-Out': 'images/moveOut.jpg',
-    'Sunday-Reset': 'images/sundayReset.jpg',
-    'Party': 'images/event.jpg'
+    'Sunday': 'images/sundayReset.jpg',
+    'Event': 'images/event.jpg'
 }
 fetch('./scenarios.json')
     .then((res) => res.json())
