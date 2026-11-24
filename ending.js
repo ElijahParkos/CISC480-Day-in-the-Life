@@ -27,6 +27,8 @@ function showEndingSummary(rankText) {
     document.querySelector('.text-container').style.display = 'none';
     document.querySelector('.choice-container').style.display = 'none';
 
+    document.body.classList.add('ending');
+
     // make matching
     const endingScreen = document.querySelector('#ending-screen');
     // endingScreen.id = 'ending-screen';
@@ -59,34 +61,78 @@ function showEndingSummary(rankText) {
     list_header.textContent = "Let's take a closer look:";
     content.appendChild(list_header);
 
-    // list choices per scenario
-    const list = document.createElement('ol');
-        choiceHistory.forEach(function (entry) {
-        const item = document.createElement('li');
 
-        const question = document.createElement('p');
-        question.textContent = entry.question;
+    const accordion = document.createElement('div');
+    accordion.className = 'accordion';
+
+    function setOpen(item, open) {
+        item.classList.toggle('is-open', open);
+        item.querySelector('.accordion-content-description').hidden = !open;
+        
+        if (open) {
+            item.querySelector('.accordion-icon').textContent = '−';
+        }  else {
+            item.querySelector('.accordion-icon').textContent = '+';
+        }
+    }
+
+    choiceHistory.forEach(function (entry, index) {
+        const item = document.createElement('div');
+        item.className = 'accordion-content';
+
+        const heading = document.createElement('p');
+        heading.className = 'accordion-heading';
+
+        const trigger = document.createElement('button');
+        trigger.type = 'button';
+        trigger.className = 'accordion-trigger';
+
+        const title = document.createElement('span');
+        title.className = 'accordion-content-title';
+        title.textContent = `${index + 1}. ${entry.question}`;
+
+        const icon = document.createElement('span');
+        icon.className = 'accordion-icon';
+        icon.textContent = '+';
+
+        trigger.appendChild(title);
+        trigger.appendChild(icon);
+        heading.appendChild(trigger);
+
+        const panel = document.createElement('div');
+        panel.className = 'accordion-content-description';
+        panel.hidden = true;
 
         const choice = document.createElement('p');
         choice.textContent = `You chose: ${entry.choice}`;
+        panel.appendChild(choice);
 
         const consequence = document.createElement('p');
         consequence.textContent = `Remember: ${entry.consequence}`;
-
-        item.appendChild(question);
-        item.appendChild(choice);
-        item.appendChild(consequence);
-
+        panel.appendChild(consequence);
 
         if (entry.score !== undefined) {
             const score = document.createElement('p');
             score.textContent = `Score: ${entry.score}/${entry.best}`;
-            item.appendChild(score);
+            panel.appendChild(score);
         }
 
-        list.appendChild(item);
+        trigger.addEventListener('click', function () {
+            const willOpen = !item.classList.contains('is-open');
+
+            // one open at a time: delete this loop to allow several
+            accordion.querySelectorAll('.accordion-content').forEach(function (other) {
+                setOpen(other, false);
+            });
+
+            setOpen(item, willOpen);
+        });
+
+        item.appendChild(heading);
+        item.appendChild(panel);
+        accordion.appendChild(item);
     });
-    content.appendChild(list);
+    content.appendChild(accordion);
 
     const comment_container = document.createElement('div');
     comment_container.style.display = 'flex';
