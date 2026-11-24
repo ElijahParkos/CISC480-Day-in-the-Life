@@ -15,6 +15,12 @@ close_popup_btn.addEventListener('click', closeConsequence);
 let scenarios = {};   // loaded from scenarios.json
 let current = null;   // id of the scenario on screen
 
+const backgrounds = {
+    'Move-In': 'images/moveIn.jpg',
+    'Move-Out': 'images/moveOut.jpg',
+    'Sunday': 'images/sundayReset.jpg',
+    'Event': 'images/event.jpg'
+}
 fetch('./scenarios.json')
     .then((res) => res.json())
     .then((data) => {
@@ -26,6 +32,9 @@ function showScenario(id) {
     current = id;
     const s = scenarios[id];
 
+    if (backgrounds[s.Day_Type]) {
+        document.body.style.backgroundImage = `url("${backgrounds[s.Day_Type]}")`;
+    }
     textbox.textContent = s.Text;
     choice1_btn.textContent = s.Options[0].Choice1;
     choice2_btn.textContent = s.Options[1].Choice2;
