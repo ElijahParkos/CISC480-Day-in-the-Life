@@ -21,7 +21,7 @@ function isEndOfPath(option) {
 // display choices the player made
 // also can put scoring feedback and results info here
 function showEndingSummary(rankText) {
-    //if (document.getElementById('ending-screen')) return;
+    const endingText = scenarios.Ending;
 
     // hide the scenario text and the choice buttons
     document.querySelector('.text-container').style.display = 'none';
@@ -56,7 +56,36 @@ function showEndingSummary(rankText) {
         rank.textContent = rankText;
         content.appendChild(rank);
     }
+    
+    // explanation of how the scoring works
+    const explanation = endingText.Score_Explanation;
 
+    // the button the player clicks
+    const score_toggle = document.createElement('button');
+    score_toggle.type = 'button';
+    score_toggle.className = 'score-toggle';
+    score_toggle.textContent = endingText.Score_Title;
+
+    // the score explanation box
+    const score_text = document.createElement('p');
+    score_text.textContent = endingText.Score_Explanation;
+    score_text.hidden = true;
+
+    // show the explanation if it is hidden, hide it if it is showing
+    function toggleExplanation() {
+        if (score_text.hidden) {
+            score_text.hidden = false;
+        } else {
+            score_text.hidden = true;
+        }
+    }
+
+    score_toggle.addEventListener('click', toggleExplanation);
+
+    content.appendChild(score_toggle);
+    content.appendChild(score_text);
+
+    
     const list_header = document.createElement('h3');
     list_header.textContent = "Let's take a closer look:";
     content.appendChild(list_header);
