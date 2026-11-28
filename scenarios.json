@@ -12,11 +12,7 @@
     "Ending": {
         "Encouragement": "Sustainability is a journey. There is no one right answer, and nobody can do everything perfectly. What matters is working towards living more sustainably in little ways each day.",
         "Score_Title": "How does the score work?",
-        "Score_Explanation": [
-            "Every choice is ranked on a scale of 1 to 5 points. The more sustainable the choice, the more points it earns.",
-            "Your percentage shows where your day landed between the least sustainable and the most sustainable day you could have had.",
-            "There is not just one correct answer. Many scenarios have more than one choice that earns the top score, and even a small step up from the lowest option raises your score."
-        ]
+        "Score_Explanation": "Every choice is ranked on a scale of 1 to 5 points. The more sustainable the choice, the more points it earns. Your percentage shows where your day landed between the least sustainable and the most sustainable day you could have had. There is not just one correct answer. Many scenarios have more than one choice that earns the top score, and even a small step up from the lowest option raises your score."
     },
     "Scenario1": { 
         "Day_Type": "Move-In",
