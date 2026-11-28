@@ -30,6 +30,18 @@ body {
     font-family: 'Avenir';
     background-image: url("images/background1.jpg");
     background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+body.ending {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Avenir';
+    background-image: url("images/background1.jpg");
+    background-attachment: fixed;
 }
 
 main {
@@ -120,7 +132,7 @@ main {
 }
 
 .title {
-    color: var(--palette-green);
+    color: var(--palette-purple);
     font-size: 18pt;
 }
 
@@ -182,4 +194,66 @@ dialog[open]::backdrop {
 
 #ending-screen {
     padding: 20px;
+    background-color: color-mix(in srgb, var(--palette-white) 75%, transparent);
+    box-shadow: none;
+}
+
+body.ending .banner {
+    background-color: transparent;
+}
+
+.accordion {
+    max-width: none;
+    margin: 0 0 1rem 0;
+    padding: 0.5rem 1rem;
+    box-sizing: border-box;
+}
+
+.accordion .accordion-content {
+    margin: 10px 0;
+    border: 2px solid #FFF;
+    border-radius: 15px;
+    overflow: hidden;
+    background: #FFF;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+
+.accordion-heading {
+    margin: 0;
+    font-size: inherit;
+}
+
+.accordion-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    min-height: 50px;
+    padding: 0 15px;
+    border: none;
+    background: none;
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+}
+
+.accordion-trigger:focus-visible {
+    outline: 3px solid var(--palette-white);
+    outline-offset: -3px;
+}
+
+.accordion-content.is-open .accordion-trigger {
+    min-height: 35px;
+    background-color: var(--palette-white);
+}
+
+.accordion-content-description {
+    padding: 0 15px;
+    font-size: 14pt;
+    color: #000000;
+}
+
+.accordion-icon {
+    font-size: 1.2rem;
+    font-weight: bold;
 }
