@@ -54,6 +54,11 @@ function showEndingSummary(rankText) {
         const rank = document.createElement('h3');
         rank.style.textAlign = 'center';
         rank.textContent = rankText;
+        if (getPercent() >= 50) {
+            rank.style.color = 'var(--palette-green)';
+        } else {
+            rank.style.color = 'var(--palette-black)';
+        }
         content.appendChild(rank);
     }
     
@@ -86,9 +91,12 @@ function showEndingSummary(rankText) {
     content.appendChild(score_text);
 
     
+    const details = document.createElement('div');
+    details.className = 'ending-panel';
+
     const list_header = document.createElement('h3');
     list_header.textContent = "Let's take a closer look:";
-    content.appendChild(list_header);
+    details.appendChild(list_header);
 
 
     const accordion = document.createElement('div');
@@ -164,6 +172,7 @@ function showEndingSummary(rankText) {
     content.appendChild(accordion);
 
     const comment_container = document.createElement('div');
+    comment_container.className = 'ending-panel';
     comment_container.style.display = 'flex';
     comment_container.style.flexDirection = 'column';
     comment_container.style.alignItems = 'center';
@@ -172,6 +181,12 @@ function showEndingSummary(rankText) {
     comment.style.textAlign = 'center';
     comment_container.appendChild(comment);
 
+    // encouraging line from scenarios.json
+    const encouragement = document.createElement('p');
+    encouragement.textContent = endingText.Encouragement;
+    encouragement.style.textAlign = 'center';
+    encouragement.style.color = 'var(--palette-purple)';
+    comment_container.appendChild(encouragement);
 
     const playAgain = document.createElement('button');
     playAgain.className = 'choice-btn';
@@ -186,7 +201,10 @@ function showEndingSummary(rankText) {
         location.reload();
     });
     comment_container.appendChild(playAgain);
-    content.appendChild(comment_container);
     endingScreen.appendChild(content);
     document.querySelector('.banner').appendChild(endingScreen);
+    
+    const main = document.querySelector('main');
+    main.appendChild(details);
+    main.appendChild(comment_container);
 }
