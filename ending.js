@@ -61,9 +61,6 @@ function showEndingSummary(rankText) {
         }
         content.appendChild(rank);
     }
-    
-    // explanation of how the scoring works
-    const explanation = endingText.Score_Explanation;
 
     // the button the player clicks
     const score_toggle = document.createElement('button');
