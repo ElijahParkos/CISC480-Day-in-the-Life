@@ -225,10 +225,6 @@ body.ending main {
     text-decoration: underline;
 }
 
-body.ending .banner {
-    background-color: transparent;
-}
-
 .accordion {
     max-width: none;
     margin: 0 0 1rem 0;
