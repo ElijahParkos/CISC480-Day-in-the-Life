@@ -169,7 +169,7 @@ function showEndingSummary(rankText) {
         item.appendChild(panel);
         accordion.appendChild(item);
     });
-    content.appendChild(accordion);
+    details.appendChild(accordion);
 
     const comment_container = document.createElement('div');
     comment_container.className = 'ending-panel';
