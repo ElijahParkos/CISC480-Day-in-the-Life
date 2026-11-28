@@ -193,9 +193,36 @@ dialog[open]::backdrop {
 }
 
 #ending-screen {
+    box-sizing: border-box;
+    padding: 10px 25px;
+}
+
+body.ending main {
+    height: auto;
+    justify-content: flex-start;
+    gap: 25px;
+    padding-bottom: 25px;
+}
+
+.ending-panel {
+    box-sizing: border-box;
+    background-color: var(--semi-transparent-background);
+    border-radius: 15px;
+    width: 95%;
     padding: 20px;
-    background-color: color-mix(in srgb, var(--palette-white) 75%, transparent);
-    box-shadow: none;
+    font-size: 18pt;
+}
+
+.score-toggle {
+    display: block;
+    margin: 0 auto;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font: inherit;
+    font-size: 14pt;
+    color: var(--palette-purple);
+    text-decoration: underline;
 }
 
 body.ending .banner {
